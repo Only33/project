@@ -15,21 +15,24 @@
             location.href= '/login';
         }
         if(location.pathname!='/login'&&location.pathname!='/dashboard/login'&&location.pathname!='/views/dashboard/login'){
-            //ĞèÒªäÖÈ¾Ä£°å
+            //éœ€è¦æ¸²æŸ“æ¨¡æ¿
             var html = template('img_avatar',JSON.parse($.cookie('tcInfo')));
             $('.aside>.profile').html(html);
         }
-        //ÍË³ö¹¦ÄÜ
+        //é€€å‡ºåŠŸèƒ½
         $('#logout').on('click',function(){
             $.ajax({
                 url:'/api/logout',
                 type:'post',
                 data:'',
                 success:function(){
-                    alert("ÍË³ö³É¹¦");
+                    alert("é€€å‡ºæˆåŠŸ");
                     location.href = '/login';
                 }
             })
     });
+        $('.navs a+ul').prev().on('click',function(){
+            $(this).next().slideToggle();
+        })
 
     });
