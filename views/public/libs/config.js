@@ -10,19 +10,19 @@ require.config({
         'cookie': 'assets/jquery-cookie/jquery.cookie',
         'template': 'assets/artTemplate/template',
         'nprogress': 'assets/nprogress/nprogress',
-        'common': 'js/common',
         'form':'assets/jquery-form/jquery.form',
-        'datepicker':'assets/bootstrap-datepicker/js/bootstrap-datepicker.min',
-        'datepickerzh':'assets/bootstrap-datepicker/locales/bootstrap-datepicker.zh-CN.min'
+        'datepicker':'assets/bootstrap-datepicker/js/bootstrap-datepicker',
+        'datepickerzh':'assets/bootstrap-datepicker/locales/bootstrap-datepicker.zh-CN.min',
+        'common': 'js/common',
     },
     shim:{
         bootstrap:{
             deps: ['jquery']
         },
-        form:{
+        'datepickerzh':{
             deps:['jquery']
         },
-        'datepickerzh':{
+        form:{
             deps:['jquery']
         }
     }

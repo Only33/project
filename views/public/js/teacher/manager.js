@@ -2,7 +2,7 @@
  * Created by GD-se7en on 2017.8.15.
  */
 
-define(['jquery','template','form','datepicker','datepickerzh'],function($,template,form,dp,dpzh){
+define(['jquery','template','datepicker','datepickerzh','form'],function($,template,dp,dpzh,form){
 
     var search = location.search; // ?tc_id=3&name=250&age=20&sex='男'
     search = search.slice(1);
