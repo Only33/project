@@ -13,6 +13,9 @@ require.config({
         'form':'assets/jquery-form/jquery.form',
         'datepicker':'assets/bootstrap-datepicker/js/bootstrap-datepicker',
         'datepickerzh':'assets/bootstrap-datepicker/locales/bootstrap-datepicker.zh-CN.min',
+        'uploadify':'assets/uploadify/jquery.uploadify',
+        'region':'assets/jquery-region/jquery.region',
+        'ckeditor':'assets/ckeditor/ckeditor',
         'common': 'js/common',
     },
     shim:{
@@ -24,6 +27,12 @@ require.config({
         },
         form:{
             deps:['jquery']
+        },
+        uploadify:{
+            deps:['jquery']
+        },
+        ckeditor:{
+            exports:'CKEDITOR'
         }
     }
 });

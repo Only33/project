@@ -33,7 +33,7 @@ define(['jquery','template','datepicker','datepickerzh','form'],function($,templ
 
                 //加载日期插件
                 $('input[name=tc_join_date]').datepicker({
-                    format:'yyy-mm-dd',
+                    format:'yyyy-mm-dd',
                     language:'zh-CN'
                 })
                }
@@ -52,7 +52,7 @@ define(['jquery','template','datepicker','datepickerzh','form'],function($,templ
 
         //加载日期插件
         $('input[name=tc_join_date]').datepicker({
-            format:'yyy-mm-dd',
+            format:'yyyy-mm-dd',
             language:'zh-CN'
         });
 

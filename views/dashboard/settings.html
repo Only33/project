@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <title>学IT - 后台管理系统</title>
@@ -74,21 +74,15 @@
             <div class="form-group">
                 <label for="" class="col-md-3 control-label">籍贯</label>
 
-                <div class="col-md-5">
-                    <select name="" class="form-control input-sm">
-                        <option value="">河北省</option>
-                        <option value="">山东省</option>
-                        <option value="">北京市</option>
+                <div class="col-md-5" id="region">
+                    <select name="" id="p" data-id="{{tc_province}}" class="form-control input-sm">
+                        <option value="">请选择省</option>
                     </select>
-                    <select name="" class="form-control input-sm">
-                        <option value="">河北省</option>
-                        <option value="">山东省</option>
-                        <option value="">北京市</option>
+                    <select name="" id="c" data-id="{{tc_city}}" class="form-control input-sm">
+                        <option value="">请选择市</option>
                     </select>
-                    <select name="" class="form-control input-sm">
-                        <option value="">河北省</option>
-                        <option value="">山东省</option>
-                        <option value="">北京市</option>
+                    <select name="" id="d" data-id="{{tc_district}}" class="form-control input-sm">
+                        <option value="">请选择区</option>
                     </select>
                 </div>
             </div>
@@ -122,7 +116,7 @@
             </div>
             <div class="form-group">
                 <div class="col-md-8">
-                    <a href="./course_add_step2.html" class="btn btn-success btn-sm pull-right">保 存</a>
+                    <button class="btn btn-success btn-sm pull-right saveBtn">保 存</button>
                     <a href="./repass.html" class="btn btn-link btn-sm pull-right">更改密码？</a>
                 </div>
             </div>
