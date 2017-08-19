@@ -2,7 +2,7 @@
  * Created by GD-se7en on 2017.8.18.
  */
 
-define(['jquery','template','uploadify','datepicker','datepickerzh','region','ckeditor'],function($,template,uploadify,datepicker,datezh,region,CKEDITOR){
+define(['jquery','template','uploadify','datepicker','datepickerzh','region','ckeditor','form'],function($,template,uploadify,datepicker,datezh,region,CKEDITOR){
 //发送请求 获取数据 渲染页面
     $.ajax({
         url:'/api/teacher/profile',
@@ -29,7 +29,7 @@ define(['jquery','template','uploadify','datepicker','datepickerzh','region','ck
                 //使用日期插件
                 $('input[name=tc_join_date],input[name=tc_birthday]').datepicker({
                     format:'yyyy/mm/dd',
-                    language:'zh_CN'
+                    language:'zh-CN'
                 });
 
                 //三级联动模块插件的使用
@@ -51,9 +51,24 @@ define(['jquery','template','uploadify','datepicker','datepickerzh','region','ck
                 })
             }
         }
+    });
+
+    //给保存按钮注册事件，向服务器发送数据，提交当前的信息
+    $('.settings').on('click','.saveBtn',function(){
+        //alert(333)
+        $('#tc_introduce').val(CKEDITOR.instances.tc_introduce.getData());
+        $('form').ajaxSubmit({
+            url:'/api/teacher/modify',
+            type:'post',
+            success:function(info){
+                if(info.code == 200){
+                    alert("添加成功");
+                    location.href = '/teacher/list';
+                }
+            }
+        });
+        return false;
     })
-
-
 
 
 });
