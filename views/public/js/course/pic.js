@@ -1,25 +1,45 @@
 /**
  * Created by GD-se7en on 2017.8.19.
  */
-define(['utils','jquery','template'],function(utils,$,template){
-    //»ñÈ¡urlµÄid
+define(['utils','jquery','template','uploadify'],function(utils,$,template,uploadify){
+    //è·å–urlçš„id
     var cs_id = utils.queryString().cs_id;
-    //·¢ËÍÇëÇó£¬»ñÈ¡Êı¾İ
+    //å‘é€è¯·æ±‚ï¼Œè·å–æ•°æ®
     $.ajax({
         url:'/api/course/picture',
         type:'get',
         data:{
             cs_id:cs_id
         },
-        //½ÓÊÕÊı¾İ
+        //æ¥æ”¶æ•°æ®
         success:function(info){
             if(info.code == 200){
-                //äÖÈ¾Ä£°å
+                //æ¸²æŸ“æ¨¡æ¿
                 var htmlStr = template('tpl_cs_pic',info.result);
                 $('.steps').html(htmlStr);
 
-                //ÉÏ´«Í¼Æ¬
-                
+                //ä¸Šä¼ å›¾ç‰‡åŠŸèƒ½
+                $('#btnSelect').uploadify({
+                    swf:'/views/public/assets/uploadify/uploadify.swf',
+                    //ä¸Šä¼ çš„æ¥å£
+                    uploader:'/api/uploader/cover',
+                    fileObjName:'cs_cover_original',
+                    formData:{
+                        cs_id:cs_id
+                    },
+                    buttonText:'é€‰æ‹©å›¾ç‰‡',
+                    buttonClass:'btn btn-success btn-sm',
+                    width:'80',
+                    height:'auto',
+                    itemTemplate:'<span></span>',
+                    onUploadSuccess:function(file,data,response){
+                        var path = JSON.parse(data).result.path;
+                       $('.preview img').attr('src',path);
+
+                        //å¼€å¯åˆ‡å›¾æŒ‰é’®
+                        $('#btnJcrop').prop('disabled',false);
+                    }
+                })
             }
         }
     });
