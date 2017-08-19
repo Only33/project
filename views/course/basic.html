@@ -38,6 +38,7 @@
                     <dt>{{cs_name}}</dt>
                     {{if tc_name}}
                     <dd>讲师：{{tc_name}}</dd>
+                    <dd>课时：32</dd>
                     {{/if}}
                 </dl>
             </div>
@@ -71,6 +72,7 @@
                     </h5>
                 </div>
                 <form action="" class="basic form-horizontal">
+                    <input type="hidden" value="{{cs_id}}" name="cs_id"/>
                     <div class="form-group">
                         <label for="" class="col-md-2 control-label">标题</label>
 
@@ -115,8 +117,7 @@
                         <label for="" class="col-md-2 control-label">标签</label>
 
                         <div class="col-md-8">
-                            <input type="text" value="{{tc_tags}}" name="tc_tags" class="form-control input-sm">
-
+                            <input type="text" value="{{cs_tags}}"  name="cs_tags" class="form-control input-sm">
                             <p class="help-block">将会应用于按标签搜索课程、相关课程的提取等</p>
                         </div>
                     </div>
