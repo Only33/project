@@ -24,7 +24,7 @@ define(['utils','jquery','template','ckeditor','form'],function(utils,$,template
 
     // 给保存按钮注册事件
     $('.steps').on('click','.btnSave',function (){
-        alert(666);
+        //alert(666);
         $('#cs_brief').val(CKEDITOR.instances.cs_brief.getData());
         $('form').ajaxSubmit({
             url:'/api/course/update/basic',
