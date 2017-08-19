@@ -16,6 +16,7 @@ require.config({
         'uploadify':'assets/uploadify/jquery.uploadify',
         'region':'assets/jquery-region/jquery.region',
         'ckeditor':'assets/ckeditor/ckeditor',
+        'utils':'libs/utils',
         'common': 'js/common',
     },
     shim:{

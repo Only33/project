@@ -2,27 +2,15 @@
  * Created by GD-se7en on 2017.8.15.
  */
 
-define(['jquery','template','datepicker','datepickerzh','form'],function($,template,dp,dpzh,form){
-
-    var search = location.search; // ?tc_id=3&name=250&age=20&sex='男'
-    search = search.slice(1);
-    var searchArr = search.split('&'); // 将字符串切割成数组
-    //console.log(searchArr);
-
-    var o = {};
-    for(var i=0; i<searchArr.length; i++){
-        //得到数组中第一项，每一项都是一个字符串
-        //然后以 = 再次进行切割
-        var temp = searchArr[i].split('=');
-        o[temp[0]] = temp[1];
-    }
-    if(o.tc_id){
+define(['jquery','template','utils','datepicker','datepickerzh','form'],function($,template,utils,dp,dpzh,form){
+    var id = utils.queryString().tc_id;
+    if(id){
         //根据ID发送请求，然后渲染模板   把当前ID 下面的数据查询出来，渲染在当前的页面上
         $.ajax({
             url:'/api/teacher/edit',
             type:'get',
             data:{
-                tc_id: o.tc_id
+                tc_id: id
             },
             success:function(info){
             if(info.code == 200){

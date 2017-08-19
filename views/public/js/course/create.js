@@ -19,6 +19,5 @@ define(['jquery','form'],function ($,form){
     return false;
   });
 
-  // 向服务器发送请求，获取数据 ，渲染页面   根据id向服务器获取数据，渲染当前的页面
 
 });
