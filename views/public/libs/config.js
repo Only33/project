@@ -17,6 +17,7 @@ require.config({
         'region':'assets/jquery-region/jquery.region',
         'ckeditor':'assets/ckeditor/ckeditor',
         'utils':'libs/utils',
+        'Jcrop':'assets/Jcrop/js/Jcrop',
         'common': 'js/common',
     },
     shim:{
@@ -34,6 +35,9 @@ require.config({
         },
         ckeditor:{
             exports:'CKEDITOR'
+        },
+        Jcrop:{
+            deps:['jquery']
         }
     }
 });
