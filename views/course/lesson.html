@@ -40,12 +40,12 @@
                         <div class="form-group">
                             <label for="" class="col-md-2 control-label">标题</label>
                             <div class="col-md-6">
-                                <input type="text" class="form-control input-sm">
+                                <input type="text" name="ct_name" class="form-control input-sm">
                             </div>
                             <div class="col-md-2">
                                 <div class="checkbox">
                                     <label>
-                                        <input type="checkbox"> 免费课时
+                                        <input type="checkbox" name="ct_is_free"> 免费课时
                                     </label>
                                 </div>
                             </div>
@@ -53,14 +53,14 @@
                         <div class="form-group">
                             <label for="" class="col-md-2 control-label">简介</label>
                             <div class="col-md-8">
-                                <textarea name="" rows="5" class="form-control input-sm"></textarea>
+                                <textarea name="ct_brief" rows="5" class="form-control input-sm"></textarea>
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="" class="col-md-2 control-label">视频</label>
                             <div class="col-md-8">
                                 <div class="input-group">
-                                    <input type="text" class="form-control input-sm" placeholder="支持优酷、土豆、腾讯、网易公开课的视频页面地址导入">
+                                    <input type="text" name="ct_video" class="form-control input-sm" placeholder="支持优酷、土豆、腾讯、网易公开课的视频页面地址导入">
                                     <span class="input-group-btn">
                                         <button class="btn btn-success btn-sm">获取</button>
                                     </span>
@@ -70,9 +70,9 @@
                         <div class="form-group form-inline">
                             <label for="" class="col-md-2 control-label">时长</label>
                             <div class="col-md-8">
-                                <input type="text" class="form-control input-sm small">
+                                <input type="text" name="ct_minutes" class="form-control input-sm small">
                                 分
-                                <input type="text" class="form-control input-sm small">
+                                <input type="text" name="ct_seconds" class="form-control input-sm small">
                                 秒
                                  <p class="help-block">时长必须为整数。</p>
                             </div>
@@ -80,7 +80,7 @@
                         <div class="form-group form-inline">
                             <label for="" class="col-md-2 control-label">建议学习时长</label>
                             <div class="col-md-8">
-                                <input type="text" class="form-control input-sm small">
+                                <input type="text" name="ct_recommend_duration" class="form-control input-sm small">
                                 小时
                                  <p class="help-block">（如未设置，则默认学习时长为视频时长3倍取整。）</p>
                             </div>
@@ -89,7 +89,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-link btn-sm" data-dismiss="modal">取消</button>
-                    <button type="button" class="btn btn-success btn-sm"> 添 加 </button>
+                    <button type="button" class="btnSave btn btn-success btn-sm"> 添 加 </button>
                 </div>
             </div>
         </div>
@@ -100,7 +100,7 @@
 
             <div class="brief">
                 <div class="thumb">
-                    <img src="./uploads/course_1.jpg" alt="">
+                    <img src="{{cs_cover?cs_cover:'views/public/uploads/course_1.jpg'}}" alt="">
                 </div>
                 <dl class="info">
                     <dt>Git {{cs_name}}</dt>
@@ -134,19 +134,19 @@
                 <!-- 标题 -->
                 <div class="title">
                     <h5>课时管理 <small>LESSON MANAGE</small></h5>
-                    <a src="javascript:;" data-toggle="modal" id="addLesson" data-target="#lesson" class="btn btn-success btn-sm pull-right">
+                    <a src="javascript:;" id="addLesson" class="btn btn-success btn-sm pull-right">
                         <i class="fa fa-plus"></i>
                         课时
                     </a>
                 </div>
                 <div class="lessons">
                     <ul class="list-unstyled">
-                        {{each lesson as v i}}
+                        {{each lessons as v i}}
                         <li>
                             <i class="fa fa-file-video-o"></i>
                             <span class="order">课时：{{i+1}}</span>
-                            <span class="name">{{v.tc_name}}</span>
-                            <span class="duration">{{v.tc_video_duration}}</span>
+                            <span class="name">{{v.ct_name}}</span>
+                            <span class="duration">{{v.ct_video_duration}}</span>
                             <!-- 操作 -->
                             <div class="action pull-right">
                                 <a href="javascript:;" class="btn btn-info btn-xs" data-toggle="modal" data-target="#lesson">编辑</a>
@@ -160,7 +160,7 @@
             </div>
     </script>
     <script>
-        require(['js/course/lesson'])
+        require(['js/course/lesson']);
     </script>
 </body>
 </html>
